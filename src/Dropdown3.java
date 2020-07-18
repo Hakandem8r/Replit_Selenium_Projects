@@ -32,7 +32,7 @@ public class Dropdown3 {
         Collections.sort(controlList);
         Assert.assertEquals(controlList, pricesInDouble);
 
-        //driver.quit();
+        driver.quit();
     }
 }
 /*

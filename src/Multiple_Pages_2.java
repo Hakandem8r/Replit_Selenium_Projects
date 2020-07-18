@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-
 import java.util.Set;
 
 public class Multiple_Pages_2 {
@@ -18,12 +17,30 @@ public class Multiple_Pages_2 {
         Thread.sleep(5000);
         String mainPageHandle = driver.getWindowHandle();
 
+        Thread.sleep(3000);
+
+
         changeWindow(driver);
+        driver.close();
+
         driver.switchTo().window(mainPageHandle); //to focus again our main page
-        Thread.sleep(13000);
+        Thread.sleep(3000);
         driver.findElement(By.id("block")).click();
 
-        Thread.sleep(7000);
+        changeWindow(driver);
+        driver.close();
+
+        driver.switchTo().window(mainPageHandle);
+        changeWindow(driver);
+        driver.close();
+
+        Thread.sleep(3000);
+        driver.switchTo().window(mainPageHandle);
+
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//button[text()='GOT IT']")).click();
+
+        Thread.sleep(2000);
         WebElement servicesButton = driver.findElement(By.xpath("(//div[@class='mTxt'])[5]"));
         Actions action = new Actions(driver);
         action.moveToElement(servicesButton).perform();
@@ -36,7 +53,7 @@ public class Multiple_Pages_2 {
         String url = "https://resume.naukri.com/mid-level-experienced-professionals-resume-writing?fftid=101001";
         Assert.assertEquals(url, url1);
         System.out.println(url1);
-        driver.quit();
+//        //driver.quit();
     }
 
     public static void changeWindow (WebDriver driver) {
@@ -52,7 +69,7 @@ public class Multiple_Pages_2 {
 
 
 /*
-Navigate to  https://www.naukri.com/
+Navigate to  https://www.naukri.com/ <OK>
 
 Hover over on Services
 
